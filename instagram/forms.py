@@ -1,11 +1,10 @@
 from django import forms
-
-class InstagramForm(forms.Form):
-    your_name = forms.CharField(label='First Name',max_length=30)
-    password = forms.CharField(label='Password')
-
-class SignUpForm(forms.Form):
-    your_name = forms.CharField(label='First Name',max_length=30)
-    password = forms.CharField(label='Password')
-    password = forms.CharField(label='Password Again')
-    email = forms.EmailField(label='Email')
+from .models import Image,Comment
+class NewProfileForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        exclude = ['pubdate']
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name']
