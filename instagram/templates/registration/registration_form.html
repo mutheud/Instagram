@@ -1,18 +1,45 @@
-{%extends 'base.html'%} {% block content %} {{ block.super }}
+{%extends "registration/base.html"%} {% load bootstrap3 %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-4">
+        <img src='https://previews.123rf.com/images/prykhodov/prykhodov1806/prykhodov180600032/104474433-koh-samui-thailand-march-30-2018-woman-hand-holding-iphone-x-with-social-networking-service-instagra.jpg'
+            height="600" width="500" style="margin-top: 100px; margin-left: 50px">
+        </div>
 
-{% load bootstrap3 %}
-<!-- Some content here-->
+        <div class="col-md-4">
+            {% if form.errors %}
+            <p> Some Information Might be Incorrect </p>
+            {% endif %}
+            <div class="panel panel-default">
 
+                <div class="panel-heading">
+                    <h3 class="text-center">Sign Up</h3>
+                </div>
+                <div class="panel-body">
 
-<!-- Looping through news end   -->
-<div class="container-fluid">
+                    <form action="/accounts/register/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                            
+                        </div>
 
-    <form action="" method="post">
-        {%csrf_token%}
+                        <input type="hidden" name="next" value="{{next}}">
 
-        {% bootstrap_form form layout='inline' %}
-        <input type="submit" value="Login">
-    </form>
-    
+                    </form>
+                
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- empty div -->
+        <div class="col-md-4"></div>
+    </div>
 </div>
+
 {% endblock %}

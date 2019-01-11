@@ -1,34 +1,27 @@
-{% load bootstrap3 %}
-{% load static%}
+{% load bootstrap3 %} 
+{% load staticfiles %} 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%if title%}
 
+    <title>{{ title }}</title>
 
-    {% if title %}
-    <title>Instagram - {{title}}</title>
-    {% else %}
-    <title>Instagram </title>
-    {% endif %}
-
-    {% block styles %}
+    {%endif%} 
+    {% block styles %} 
     {% bootstrap_css %}
-    {% endblock %}
+     {% endblock %}
+  </head>
 
-</head>
-
-<body>
+  <body>
     {% include "navbar.html" %}
-    {% block content %}
-
-
-    {% endblock %}
-
+    {% block content %} 
+    {%endblock%} 
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %}
-    {% endblock %}
+    {% bootstrap_javascript %} {% endblock %}
+  </body>
 </html>

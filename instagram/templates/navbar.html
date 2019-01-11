@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head> </head>
 
-<head>
-
-</head>
-
-<body>
-<!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="static/logo/Instagram1.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">Instagram
-    </a>
-</nav>
-
-</body>
-
+  <body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img
+          src="static/logo/Instagram1.jpeg"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />Instagram
+      </a>
+      <ul>
+        <li class="dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle btn btn-default"
+            data-toggle="dropdown"
+            role="button"
+            aria-expanded="false"
+            >Account <span></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{%url 'welcome'%}">Home</a></li>
+            <li><a href="{%url 'new_profile'%}">Create Post</a></li>
+            <li><a href="/accounts/password/change">Change Password</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
+        <input type="text" class="form-control my-2 my-sm-0 search-input" name="username" placeholder="Search.." id="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    
+    <p><a href="/accounts/register/">Sign Up</a></p>
+    <p><a href="/accounts/login/">Login</a></p>
+    </nav>
+  </body>
 </html>
